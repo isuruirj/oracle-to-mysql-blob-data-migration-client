@@ -17,3 +17,18 @@ A java client designed to migrate blob data from Oracle database to MySQL databa
 ### Run
 
 java -jar db.blob.migration-1.0-jar-with-dependencies.jar
+
+### To Export
+- Copy the db.blob.migration-1.0-jar-with-dependencies.jar and config.properties file to the same directory.
+- Update connection parameters for both Oracle and MySQL databases.
+- Set CLIENT.OPERATION to EXPORT.
+- Set the EXPORT.DIRECTORY.PATH where export should get stored and at the end append /oracleToMysql (don't create /oracleToMysql directory, it'll get created from the client).
+- Set the IMPORT.DIRECTORY.PATH where data will be reading during the import process and at the end append /oracleToMysql.
+- Run the client.
+- It'll create the oracleToMysql directory in the provided export path and put the dumps there.
+
+### To Import
+- Copy the db.blob.migration-1.0-jar-with-dependencies.jar and config.properties file to the same directory.
+- Set CLIENT.OPERATION to IMPORT.
+- Copy the /oracleToMysql directory which got generated during export to the IMPORT path provided.
+- Run the client.
